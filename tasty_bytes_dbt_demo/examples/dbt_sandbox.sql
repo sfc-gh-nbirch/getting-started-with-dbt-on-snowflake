@@ -9,6 +9,7 @@ execute dbt project tasty_bytes_dbt_db.dev.tasty_bytes_dbt_dev args='run --selec
 
 CREATE OR ALTER TASK tasty_bytes_dbt_db.dev.run_prepped_data_dbt
   SCHEDULE = '24 hours'
+  WAREHOUSE = DEV_ADHOC_WH
 AS
     execute dbt project tasty_bytes_dbt_db.dev.tasty_bytes_dbt_dev args='run --select customer_loyalty_metrics';
 
